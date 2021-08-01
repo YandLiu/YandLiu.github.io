@@ -8,9 +8,11 @@
 // @grant        none
 // @description  繁体转化为简体
 // ==/UserScript==
-if (typeof(TongWen) == "undefined") var TongWen = new Object();
+if (typeof (TongWen) == "undefined") var TongWen = new Object();
 
 TongWen.t_2_s = {
+    "\u7fa3": "\u7fa4",
+    "\u9f9e": "\u9f9f",
     "\u6c37": "\u51b0",
     "\u9ebd": "\u4e48",
     "\u00af": "\u02c9",
@@ -2975,7 +2977,7 @@ function doFrames(curDoc, deep) {
 function toSimp(itxt) {
     var zhmap = TongWen.t_2_s;
 
-    itxt = itxt.replace(/[^\x00-\xFF]/g, function(s) {
+    itxt = itxt.replace(/[^\x00-\xFF]/g, function (s) {
         return ((s in zhmap) ? zhmap[s] : s);
     });
     return itxt;
