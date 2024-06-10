@@ -895,8 +895,6 @@
                         (this.handleEnd = this.handleEnd.bind(this)),
                         (this.handleCancel = this.handleCancel.bind(this)),
                         (this.handleKeydown = this.handleKeydown.bind(this)),
-                        (this.removeTextSelection =
-                            this.removeTextSelection.bind(this)),
                         this.attach();
                 }
                 attach() {
@@ -959,11 +957,6 @@
                     e &&
                         ((this.activated = !0),
                         this.documentListeners.add(Q.Click, $, {capture: !0}),
-                        this.removeTextSelection(),
-                        this.documentListeners.add(
-                            Q.SelectionChange,
-                            this.removeTextSelection
-                        ),
                         t(e));
                 }
                 handleMove(e) {
@@ -1003,7 +996,6 @@
                 handleKeydown(e) {
                     e.code === V.Esc && this.handleCancel();
                 }
-                removeTextSelection() {}
             }
             const ae = {move: {name: 'pointermove'}, end: {name: 'pointerup'}};
             class le extends ie {
